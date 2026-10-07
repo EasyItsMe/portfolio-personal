@@ -210,79 +210,101 @@ export default function Certifications() {
       {/* Certificate Viewer Modal */}
       {selectedCert && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-3 sm:p-6 animate-in fade-in duration-200"
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="glass-panel rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative animate-in zoom-in-95 duration-200 border border-white/95"
+            className="glass-panel rounded-3xl p-5 sm:p-6 max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl relative animate-in zoom-in-95 duration-200 border border-white/95 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setSelectedCert(null)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-600 shadow-xs transition-colors"
-              aria-label="Close"
-            >
-              <X className="w-4 h-4" />
-            </button>
+            {/* Modal Header */}
+            <div className="flex items-start justify-between gap-4 pb-3.5 border-b border-purple-900/10 shrink-0">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-purple-100 text-[#6366f1] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                  <Award className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className={`inline-block text-[10.5px] font-bold px-2.5 py-0.5 rounded-md border ${selectedCert.badgeColor}`}>
+                      {selectedCert.category}
+                    </span>
+                    <span className="text-[11px] font-mono text-[#787e97] font-semibold">
+                      {selectedCert.date}
+                    </span>
+                  </div>
+                  <h3 className="font-heading font-extrabold text-lg sm:text-xl text-[#101221] leading-snug">
+                    {selectedCert.title}
+                  </h3>
+                  <p className="text-xs font-semibold text-[#666c85]">
+                    {selectedCert.issuer} {selectedCert.credentialId ? `· ID: ${selectedCert.credentialId}` : ""}
+                  </p>
+                </div>
+              </div>
 
-            <div className="w-12 h-12 rounded-2xl bg-purple-100 text-[#6366f1] flex items-center justify-center mb-4 shadow-sm">
-              <Award className="w-6 h-6" />
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-slate-600 shadow-sm transition-all hover:scale-105 shrink-0 cursor-pointer"
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
-            <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-md border mb-2 ${selectedCert.badgeColor}`}>
-              {selectedCert.category}
-            </span>
+            {/* Embedded Live PDF Document Viewer */}
+            <div className="flex-1 my-3 min-h-[300px] max-h-[56vh] rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-50 relative shadow-inner flex flex-col">
+              {selectedCert.file ? (
+                <iframe
+                  src={`${encodeURI(selectedCert.file)}#toolbar=0&navpanes=0`}
+                  title={selectedCert.title}
+                  className="w-full h-full min-h-[320px] sm:min-h-[420px] rounded-2xl bg-white border-0"
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center h-full p-6 text-center text-slate-500">
+                  <Award className="w-12 h-12 text-slate-300 mb-2" />
+                  <p className="text-sm font-semibold">{selectedCert.title}</p>
+                  <p className="text-xs text-slate-400">{selectedCert.issuer}</p>
+                </div>
+              )}
+            </div>
 
-            <h3 className="font-heading font-extrabold text-xl text-[#101221] mb-1">
-              {selectedCert.title}
-            </h3>
-
-            <p className="text-xs font-semibold text-[#666c85] mb-4">
-              {selectedCert.issuer} · {selectedCert.date}
-            </p>
-
-            {selectedCert.credentialId && (
-              <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-100 mb-4 text-xs font-mono text-purple-900">
-                Credential ID: <strong>{selectedCert.credentialId}</strong>
-              </div>
-            )}
-
-            <div className="mb-6">
-              <h5 className="text-[11px] font-bold uppercase tracking-wider text-[#7e849c] mb-2">
-                {t.certifications.competenciesTitle}
-              </h5>
-              <div className="flex flex-wrap gap-1.5">
+            {/* Modal Footer / Competencies & Action Buttons */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-purple-900/10 shrink-0">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-[#717791] mr-1 uppercase tracking-wider">
+                  {t.certifications.competenciesTitle}:
+                </span>
                 {selectedCert.skills.map((s) => (
                   <span
                     key={s}
-                    className="text-xs font-semibold bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-[#3b4056]"
+                    className="text-[10.5px] font-medium bg-white/85 text-[#3b4056] px-2 py-0.5 rounded border border-slate-200/80"
                   >
                     {s}
                   </span>
                 ))}
               </div>
-            </div>
 
-            {selectedCert.file && (
-              <div className="flex items-center gap-3 pt-4 border-t border-purple-900/10">
-                <a
-                  href={selectedCert.file}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-primary flex-1 text-center justify-center"
-                >
-                  {t.certifications.openPdf} <ExternalLink className="w-4 h-4" />
-                </a>
-                <a
-                  href={selectedCert.file}
-                  download
-                  className="btn-secondary px-4 flex items-center gap-1.5"
-                  title={t.certifications.downloadFile}
-                >
-                  <Download className="w-4 h-4" />
-                </a>
-              </div>
-            )}
+              {selectedCert.file && (
+                <div className="flex items-center gap-2.5 shrink-0">
+                  <a
+                    href={encodeURI(selectedCert.file)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary py-2 px-4 text-xs font-semibold flex items-center gap-1.5 shadow-sm"
+                  >
+                    {t.certifications.openPdf} <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href={encodeURI(selectedCert.file)}
+                    download
+                    className="btn-secondary py-2 px-3.5 text-xs font-semibold flex items-center gap-1.5 shadow-xs"
+                    title={t.certifications.downloadFile}
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

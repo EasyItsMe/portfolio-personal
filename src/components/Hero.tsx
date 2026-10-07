@@ -67,13 +67,8 @@ export default function Hero() {
     visualRef.current.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) translate3d(0,0,0)";
   };
 
-  const handleDownloadCv = () => {
-    const link = document.createElement("a");
-    link.href = "/assets/CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf";
-    link.download = "CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleOpenCv = () => {
+    window.open("/assets/CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf", "_blank", "noopener,noreferrer");
     showToast(t.hero.cvToast, "success");
   };
 
@@ -135,11 +130,11 @@ export default function Hero() {
               {t.hero.viewWork} <ArrowUpRight className="w-4 h-4" />
             </Link>
             <button
-              onClick={handleDownloadCv}
+              onClick={handleOpenCv}
               className="bg-white/80 hover:bg-white text-[#101221] border border-white/95 rounded-full px-6 py-3 text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
               type="button"
             >
-              {t.hero.downloadCv} <ArrowDown className="w-4 h-4 text-slate-700" />
+              {t.hero.downloadCv} <ArrowUpRight className="w-4 h-4 text-purple-600" />
             </button>
           </div>
 
