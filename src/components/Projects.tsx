@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { ArrowUpRight, ExternalLink, X, Check, Play, Wallet, GraduationCap, TrendingUp, Sparkles, FileText, Clock } from "lucide-react";
 import { TechLogo } from "./TechLogos";
 import { useLanguage } from "@/context/LanguageContext";
@@ -24,6 +25,11 @@ interface ProjectItem {
 export default function Projects() {
   const { t } = useLanguage();
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const visualConfig: Record<string, { gradient: string; accentColor: string; mockType: "snapvid" | "dompetaman" | "tasystem" }> = {
     snapvid: {
@@ -217,22 +223,22 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Project Details Modal */}
-      {selectedProject && (
+      {/* Project Details Modal mounted to body via Portal */}
+      {mounted && selectedProject && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/70 backdrop-blur-md p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedProjectId(null)}
         >
           <div
-            className="glass-panel rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative animate-in zoom-in-95 duration-200 border border-white/90 max-h-[90vh] overflow-y-auto"
+            className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] relative animate-in zoom-in-95 duration-200 border border-white/90 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedProjectId(null)}
-              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-600 shadow-sm cursor-pointer transition-colors"
+              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 shadow-xs cursor-pointer transition-colors"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             <span className="text-xs font-bold uppercase tracking-wider text-[#6366f1] mb-1 block">
@@ -302,7 +308,8 @@ export default function Projects() {
               </a>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

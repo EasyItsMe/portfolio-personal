@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Award, ExternalLink, ShieldCheck, Download, X, Sparkles } from "lucide-react";
 import Marquee from "./Marquee";
 import { useLanguage } from "@/context/LanguageContext";
@@ -21,6 +22,11 @@ interface Certificate {
 export default function Certifications() {
   const { t } = useLanguage();
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const certificates: Certificate[] = [
     {
@@ -207,18 +213,18 @@ export default function Certifications() {
         </div>
       </Reveal>
 
-      {/* Certificate Viewer Modal */}
-      {selectedCert && (
+      {/* Certificate Viewer Modal mounted to body via Portal */}
+      {mounted && selectedCert && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-3 sm:p-6 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/75 backdrop-blur-md p-3 sm:p-6 animate-in fade-in duration-200"
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="glass-panel rounded-3xl p-5 sm:p-6 max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl relative animate-in zoom-in-95 duration-200 border border-white/95 overflow-hidden"
+            className="bg-white/95 backdrop-blur-2xl rounded-3xl p-5 sm:p-6 max-w-4xl w-full max-h-[92vh] flex flex-col shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] relative animate-in zoom-in-95 duration-200 border border-white/90 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 pb-3.5 border-b border-purple-900/10 shrink-0">
+            <div className="flex items-start justify-between gap-4 pb-3.5 border-b border-slate-200/80 shrink-0">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-purple-100 text-[#6366f1] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
                   <Award className="w-5 h-5" />
@@ -244,7 +250,7 @@ export default function Certifications() {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedCert(null)}
-                className="w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-slate-600 shadow-sm transition-all hover:scale-105 shrink-0 cursor-pointer"
+                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 shadow-xs transition-all hover:scale-105 shrink-0 cursor-pointer"
                 aria-label="Close"
               >
                 <X className="w-4 h-4" />
@@ -252,12 +258,12 @@ export default function Certifications() {
             </div>
 
             {/* Embedded Live PDF Document Viewer */}
-            <div className="flex-1 my-3 min-h-[300px] max-h-[56vh] rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-50 relative shadow-inner flex flex-col">
+            <div className="flex-1 my-3 min-h-[320px] max-h-[58vh] rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-100 relative shadow-inner flex flex-col">
               {selectedCert.file ? (
                 <iframe
                   src={`${encodeURI(selectedCert.file)}#toolbar=0&navpanes=0`}
                   title={selectedCert.title}
-                  className="w-full h-full min-h-[320px] sm:min-h-[420px] rounded-2xl bg-white border-0"
+                  className="w-full h-full min-h-[340px] sm:min-h-[440px] rounded-2xl bg-white border-0"
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center h-full p-6 text-center text-slate-500">
@@ -269,7 +275,7 @@ export default function Certifications() {
             </div>
 
             {/* Modal Footer / Competencies & Action Buttons */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-purple-900/10 shrink-0">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-200/80 shrink-0">
               <div className="flex items-center gap-1.5 flex-wrap">
                 <span className="text-[11px] font-bold text-[#717791] mr-1 uppercase tracking-wider">
                   {t.certifications.competenciesTitle}:
@@ -277,7 +283,7 @@ export default function Certifications() {
                 {selectedCert.skills.map((s) => (
                   <span
                     key={s}
-                    className="text-[10.5px] font-medium bg-white/85 text-[#3b4056] px-2 py-0.5 rounded border border-slate-200/80"
+                    className="text-[10.5px] font-medium bg-white text-[#3b4056] px-2 py-0.5 rounded border border-slate-200 shadow-xs"
                   >
                     {s}
                   </span>
@@ -306,7 +312,8 @@ export default function Certifications() {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
