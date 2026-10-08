@@ -16,7 +16,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://drab-one.vercel.app";
+const siteUrl = "https://achmadzacky.my.id";
 
 export const viewport: Viewport = {
   themeColor: "#0f1221",
