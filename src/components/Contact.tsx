@@ -70,7 +70,7 @@ export default function Contact() {
               <a
                 href="https://wa.me/6283150828377"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm sm:text-base font-medium text-[#4e5369] hover:text-[#10b981] transition-colors group"
               >
                 <div className="w-10 h-10 rounded-xl bg-emerald-100/60 text-[#10b981] group-hover:bg-[#10b981] group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-300 shadow-xs group-hover:scale-110">

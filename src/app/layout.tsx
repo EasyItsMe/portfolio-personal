@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -16,31 +16,97 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl = "https://drab-one.vercel.app";
+
+export const viewport: Viewport = {
+  themeColor: "#0f1221",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: "Ahmad Zaki — Full-Stack Developer",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Ahmad Zaki — Full-Stack Developer & Laravel Specialist",
+    template: "%s | Ahmad Zaki",
+  },
   description:
-    "Portfolio of Ahmad Zaki, Full-Stack Developer & D3 Informatics Management Graduate from Politeknik Piksi Input Serang. Specialized in Laravel, Next.js, React, FastAPI, and scalable web solutions.",
+    "Official portfolio of Ahmad Zaki, Full-Stack Web Developer & D3 Informatics Management Graduate from Politeknik Piksi Input Serang. Specializing in Laravel, Next.js, React, FastAPI, REST APIs, and scalable web solutions.",
   keywords: [
     "Ahmad Zaki",
+    "Ahmad Zaki Portfolio",
     "Full-Stack Developer",
-    "Web Developer",
-    "Informatics Management Graduate",
-    "Laravel",
-    "Next.js",
-    "React",
+    "Web Developer Indonesia",
+    "Laravel Developer",
+    "Next.js Developer",
+    "React Developer",
     "FastAPI",
-    "Python",
-    "PHP",
-    "MySQL",
+    "Python Developer",
+    "PHP Developer",
+    "MySQL Database",
     "PostgreSQL",
     "TailwindCSS",
+    "Politeknik Piksi Input Serang",
+    "Web Developer Serang Banten",
   ],
-  authors: [{ name: "Ahmad Zaki" }],
-  openGraph: {
-    title: "Ahmad Zaki — Full-Stack Developer",
-    description: "Specialized in scalable web applications with Laravel, Next.js, and modern AI/media toolkits.",
-    type: "website",
+  authors: [{ name: "Ahmad Zaki", url: "https://github.com/EasyItsMe" }],
+  creator: "Ahmad Zaki",
+  publisher: "Ahmad Zaki",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      "id-ID": siteUrl,
+      "en-US": siteUrl,
+    },
+  },
+  openGraph: {
+    title: "Ahmad Zaki — Full-Stack Developer & Laravel Specialist",
+    description:
+      "Specialized in building scalable, responsive web applications with Laravel, Next.js, and modern AI/media toolkits.",
+    url: siteUrl,
+    siteName: "Ahmad Zaki Portfolio",
+    locale: "id_ID",
+    alternateLocale: ["en_US"],
+    type: "website",
+    images: [
+      {
+        url: "/profil.png",
+        width: 800,
+        height: 800,
+        alt: "Ahmad Zaki — Full-Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ahmad Zaki — Full-Stack Developer",
+    description:
+      "Full-Stack Web Developer specialized in Laravel, Next.js, and modern web architectures.",
+    images: ["/profil.png"],
+    creator: "@EasyItsMe",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/profil.png",
+    apple: "/profil.png",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -48,8 +114,69 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: "Ahmad Zaki",
+        url: siteUrl,
+        image: `${siteUrl}/profil.png`,
+        jobTitle: "Full-Stack Web Developer",
+        worksFor: {
+          "@type": "Organization",
+          name: "Freelance & Personal Projects",
+        },
+        alumniOf: {
+          "@type": "EducationalOrganization",
+          name: "Politeknik Piksi Input Serang",
+        },
+        sameAs: [
+          "https://github.com/EasyItsMe",
+          "https://wa.me/6283150828377",
+        ],
+        knowsAbout: [
+          "Laravel",
+          "Next.js",
+          "React",
+          "FastAPI",
+          "Python",
+          "PHP",
+          "TypeScript",
+          "JavaScript",
+          "MySQL",
+          "PostgreSQL",
+          "Tailwind CSS",
+          "Docker",
+          "Git & GitHub",
+          "REST APIs",
+          "Data Analysis",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Ahmad Zaki Portfolio",
+        description:
+          "Official portfolio of Ahmad Zaki, Full-Stack Web Developer & Informatics Management Graduate.",
+        publisher: {
+          "@id": `${siteUrl}/#person`,
+        },
+        inLanguage: ["id", "en"],
+      },
+    ],
+  };
+
   return (
-    <html lang="en" className={`${dmSans.variable} ${inter.variable}`}>
+    <html lang="id" className={`${dmSans.variable} ${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased">
         <div className="bg-orb orb-a" aria-hidden="true" />
         <div className="bg-orb orb-b" aria-hidden="true" />

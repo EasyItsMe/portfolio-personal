@@ -39,7 +39,7 @@ export default function Footer() {
           <a
             href="https://wa.me/6283150828377"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="w-8 h-8 rounded-full bg-white/80 hover:bg-white border border-white/90 shadow-xs flex items-center justify-center text-slate-700 hover:text-emerald-600 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm cursor-pointer"
             aria-label="WhatsApp"
             title="+62 831-5082-8377"
@@ -53,7 +53,7 @@ export default function Footer() {
           <a
             href="https://github.com/EasyItsMe"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="w-8 h-8 rounded-full bg-white/80 hover:bg-white border border-white/90 shadow-xs flex items-center justify-center text-slate-700 hover:text-[#6366f1] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm cursor-pointer"
             aria-label="GitHub"
             title="github.com/EasyItsMe"
@@ -67,7 +67,7 @@ export default function Footer() {
           <a
             href="https://linkedin.com"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="w-8 h-8 rounded-full bg-white/80 hover:bg-white border border-white/90 shadow-xs flex items-center justify-center text-slate-700 hover:text-[#6366f1] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm cursor-pointer"
             aria-label="LinkedIn"
           >
