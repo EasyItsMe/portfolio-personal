@@ -91,22 +91,22 @@ export default function Hero() {
 
   return (
     <section id="home" className="glass-panel rounded-3xl p-6 sm:p-10 lg:p-14 mb-10 overflow-hidden relative shadow-sm">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 lg:gap-6 items-center">
         {/* Left Copy */}
-        <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
+        <div className="md:col-span-7 lg:col-span-6 flex flex-col justify-center">
           <Reveal direction="up" delay={0}>
             {/* Clean Greeting with Pulsing Green Active Status Dot */}
           <div className="flex items-center gap-2.5 mb-2.5">
             <span className="relative flex h-2.5 w-2.5" title="Active & Available">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-[0_0_8px_rgba(168,185,129,0.8)]" />
             </span>
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#6366f1]">
               {t.hero.greeting}
             </span>
           </div>
 
-          <h1 className="font-heading font-black text-5xl sm:text-6xl lg:text-[72px] text-[#0f1222] tracking-tight leading-[1.05] mb-2">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-[72px] text-[#0f1222] tracking-tight leading-[1.05] mb-2">
             {t.hero.name}
           </h1>
 
@@ -167,7 +167,7 @@ export default function Hero() {
       </div>
 
       {/* Right Visual / Exact Organic Glass Frame Wrapping Profile Photo */}
-      <div className="lg:col-span-6 xl:col-span-6 flex justify-center items-center py-6 relative">
+      <div className="md:col-span-5 lg:col-span-6 flex justify-center items-center py-6 relative">
         <Reveal direction="up" delay={100} className="w-full flex justify-center">
           {/* Ambient Glow Aura */}
           <div className="absolute w-80 h-80 sm:w-[440px] sm:h-[440px] bg-gradient-to-tr from-indigo-500/20 via-purple-500/15 to-blue-400/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
@@ -220,7 +220,7 @@ export default function Hero() {
 
             {/* Main Portrait Frame with Organic Glass Shield */}
             <div
-              className="w-[290px] sm:w-[340px] md:w-[380px] h-[360px] sm:h-[420px] md:h-[460px] overflow-hidden relative shadow-[0_20px_50px_rgba(99,102,241,0.2)] bg-gradient-to-b from-[#b8caf5] via-[#dbe4fa] to-[#eef2fd] border-2 border-white/85 group backdrop-blur-xl"
+              className="w-[280px] sm:w-[320px] md:w-[310px] lg:w-[380px] h-[350px] sm:h-[400px] md:h-[390px] lg:h-[460px] overflow-hidden relative shadow-[0_20px_50px_rgba(99,102,241,0.2)] bg-gradient-to-b from-[#b8caf5] via-[#dbe4fa] to-[#eef2fd] border-2 border-white/85 group backdrop-blur-xl"
               style={{
                 borderRadius: "44% 56% 40% 60% / 28% 30% 70% 72%",
               }}
@@ -244,7 +244,7 @@ export default function Hero() {
             </div>
 
             {/* Floating Card 1: 10+ Projects Built (Top Right) */}
-            <div className="absolute -top-4 -right-2 sm:-right-6 bg-white/85 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-4 z-30 min-w-[155px] sm:min-w-[170px] transition-transform hover:-translate-y-1">
+            <div className="absolute -top-4 -right-2 sm:-right-4 md:-right-2 lg:-right-6 bg-white/85 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-3.5 sm:p-4 z-30 min-w-[145px] sm:min-w-[170px] transition-transform hover:-translate-y-1">
               <span className="font-heading font-black text-2xl sm:text-3xl text-[#101221] block leading-none tracking-tight">
                 {t.hero.card1Number}
               </span>
@@ -257,12 +257,12 @@ export default function Hero() {
             </div>
 
             {/* Floating Card 2: Core Specialization (Bottom Right) */}
-            <div className="absolute -bottom-4 -right-2 sm:-right-4 bg-white/85 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-4 z-30 min-w-[175px] sm:min-w-[195px] transition-transform hover:-translate-y-1">
+            <div className="absolute -bottom-4 -right-2 sm:-right-4 md:-right-2 lg:-right-4 bg-white/85 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-3.5 sm:p-4 z-30 min-w-[160px] sm:min-w-[195px] transition-transform hover:-translate-y-1">
               <span className="block text-[10.5px] font-bold text-[#71768e] uppercase tracking-wider">
                 {t.hero.card2Badge}
               </span>
               <div className="flex items-center gap-1.5 mt-0.5 mb-0.5">
-                <span className="font-heading font-black text-base sm:text-lg text-[#101221] leading-none">
+                <span className="font-heading font-black text-sm sm:text-base lg:text-lg text-[#101221] leading-none">
                   {t.hero.card2Title}
                 </span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#6366f1]" />

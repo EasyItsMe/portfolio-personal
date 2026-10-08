@@ -60,14 +60,14 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
+        <nav className="hidden md:flex items-center gap-3.5 lg:gap-5 xl:gap-6">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace("#", "");
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] xl:text-[13.5px] font-medium transition-colors relative py-1 ${
+                className={`text-[12.5px] lg:text-[13px] xl:text-[13.5px] font-medium transition-colors relative py-1 ${
                   isActive ? "text-[#111425] font-semibold" : "text-[#595e75] hover:text-[#111425]"
                 }`}
               >
@@ -130,7 +130,7 @@ export default function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl text-[#111425] hover:bg-white/50 transition-colors"
+            className="md:hidden p-2 rounded-xl text-[#111425] hover:bg-white/50 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -139,7 +139,7 @@ export default function Navbar() {
 
         {/* Mobile Dropdown */}
         {isOpen && (
-          <div className="lg:hidden absolute top-[calc(100%+10px)] left-0 right-0 glass-panel rounded-2xl p-5 shadow-2xl flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
+          <div className="md:hidden absolute top-[calc(100%+10px)] left-0 right-0 glass-panel rounded-2xl p-5 shadow-2xl flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

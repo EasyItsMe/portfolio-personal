@@ -47,9 +47,9 @@ export default function About() {
         </div>
       </Reveal>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 lg:gap-10 items-center">
         {/* Left Column: Photo Card */}
-        <div className="lg:col-span-5 flex flex-col items-center">
+        <div className="md:col-span-5 flex flex-col items-center">
           <Reveal direction="up" delay={100} className="w-full max-w-[340px]">
             <div className="relative group w-full">
               <div className="absolute -inset-2 bg-gradient-to-tr from-indigo-500/25 via-purple-500/20 to-blue-500/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
@@ -77,7 +77,7 @@ export default function About() {
         </div>
 
         {/* Right Column: Bio Narrative & Stats */}
-        <div className="lg:col-span-7 flex flex-col justify-between">
+        <div className="md:col-span-7 flex flex-col justify-between">
           <Reveal direction="up" delay={150}>
             <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-[#0e1122] tracking-tight leading-snug mb-4">
               {t.about.title}

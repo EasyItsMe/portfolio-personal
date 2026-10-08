@@ -37,7 +37,7 @@ export default function Services() {
         </div>
       </Reveal>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {t.services.items.map((service, index) => {
           const Icon = iconMap[service.id] || Layout;
           const colorClass = colorMap[service.id] || "from-purple-500/20 to-purple-500/5 text-purple-600 border-purple-500/30";

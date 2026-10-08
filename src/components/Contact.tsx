@@ -41,9 +41,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="glass-panel rounded-3xl p-8 sm:p-12 mb-10 relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
         {/* Contact Info */}
-        <div className="lg:col-span-5">
+        <div className="md:col-span-5">
           <Reveal direction="up" delay={0}>
             <div className="text-xs font-bold uppercase tracking-widest text-[#6366f1] mb-1">
               {t.contact.tag}
@@ -93,7 +93,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className="lg:col-span-7">
+        <div className="md:col-span-7">
           <Reveal direction="up" delay={150}>
             <form
               onSubmit={handleSubmit}
