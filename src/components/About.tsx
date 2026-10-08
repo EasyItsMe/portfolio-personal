@@ -131,6 +131,13 @@ export default function About() {
                     {cert}
                   </span>
                 ))}
+                <Link
+                  href="#certifications"
+                  className="text-xs font-bold bg-purple-100/80 hover:bg-purple-200 text-[#6366f1] px-3.5 py-1.5 rounded-xl border border-purple-200 shadow-xs flex items-center gap-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+                >
+                  <Award className="w-3.5 h-3.5 text-[#6366f1]" />
+                  {t.about.viewAllCertBtn}
+                </Link>
               </div>
             </div>
 

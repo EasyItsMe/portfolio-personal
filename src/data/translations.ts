@@ -46,6 +46,7 @@ export interface TranslationSchema {
     focusValue: string;
     focusSub: string;
     certListTitle: string;
+    viewAllCertBtn: string;
     downloadCvBtn: string;
     getInTouchBtn: string;
   };
@@ -92,11 +93,15 @@ export interface TranslationSchema {
     title: string;
     subtitle: string;
     autoScrollBadge: string;
+    autoScrollBtn: string;
+    gridViewBtn: string;
     viewCert: string;
     verified: string;
     competenciesTitle: string;
     openPdf: string;
     downloadFile: string;
+    totalCountBadge: string;
+    categories: Record<string, string>;
   };
   experience: {
     tag: string;
@@ -182,6 +187,7 @@ export const translations: Record<Language, TranslationSchema> = {
       focusValue: "Full-Stack",
       focusSub: "Laravel, Next.js & REST API",
       certListTitle: "Kredensial & Sertifikasi Utama:",
+      viewAllCertBtn: "Lihat Semua (21+ Sertifikat) ⬇",
       downloadCvBtn: "Unduh CV Lengkap (PDF)",
       getInTouchBtn: "Mari Berdiskusi",
     },
@@ -294,12 +300,22 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Keahlian & Pencapaian Terverifikasi",
       subtitle:
         "Kompetensi terverifikasi dalam pengembangan full-stack web, analisis data, arsitektur jaringan, dan software engineering.",
-      autoScrollBadge: "Auto-scrolling · Arahkan kursor untuk pause",
+      autoScrollBadge: "21+ Sertifikat Terverifikasi",
+      autoScrollBtn: "Auto-Scroll",
+      gridViewBtn: "Tampilan Grid",
       viewCert: "Lihat Sertifikat",
       verified: "Terverifikasi",
       competenciesTitle: "Kompetensi yang Terbukti",
-      openPdf: "Buka Sertifikat (PDF)",
+      openPdf: "Buka Dokumen Penuh",
       downloadFile: "Unduh Berkas",
+      totalCountBadge: "21 Kredensial Resmi",
+      categories: {
+        All: "Semua Kategori",
+        "Full-Stack & Web": "Full-Stack & Web",
+        "Data & Analytics": "Data & Analitik",
+        "Networking & Cloud": "Jaringan & Cloud",
+        "AI & Professional": "AI & Bisnis Digital",
+      },
     },
     experience: {
       tag: "Pengalaman",
@@ -391,6 +407,7 @@ export const translations: Record<Language, TranslationSchema> = {
       focusValue: "Full-Stack",
       focusSub: "Laravel, Next.js & REST APIs",
       certListTitle: "Key Credentials & Certifications:",
+      viewAllCertBtn: "View All (21+ Certificates) ⬇",
       downloadCvBtn: "Download Full CV (PDF)",
       getInTouchBtn: "Let's Discuss",
     },
@@ -503,12 +520,22 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Verified Skills & Achievements",
       subtitle:
         "Certified competencies in full-stack web development, data analytics, network infrastructure, and software engineering.",
-      autoScrollBadge: "Auto-scrolling · Hover to pause",
+      autoScrollBadge: "21+ Verified Certificates",
+      autoScrollBtn: "Auto-Scroll",
+      gridViewBtn: "Grid View",
       viewCert: "View Certificate",
       verified: "Verified",
       competenciesTitle: "Demonstrated Competencies",
-      openPdf: "Open Certificate (PDF)",
+      openPdf: "Open Full Document",
       downloadFile: "Download File",
+      totalCountBadge: "21 Official Credentials",
+      categories: {
+        All: "All Categories",
+        "Full-Stack & Web": "Full-Stack & Web",
+        "Data & Analytics": "Data & Analytics",
+        "Networking & Cloud": "Networking & Cloud",
+        "AI & Professional": "AI & Digital Business",
+      },
     },
     experience: {
       tag: "Experience",

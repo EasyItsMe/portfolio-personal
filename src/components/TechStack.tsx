@@ -101,7 +101,7 @@ export default function TechStack() {
         <Reveal direction="up" delay={150}>
           <div className="space-y-4 py-1 animate-in fade-in duration-300">
             {/* Row 1: Moving Left */}
-            <Marquee direction="left" speed={38} pauseOnHover={true} gap="gap-3.5">
+            <Marquee direction="left" speed={65} pauseOnHover={true} gap="gap-3.5">
               {row1Tech.map((item) => (
                 <div
                   key={`r1-${item.name}`}
@@ -129,7 +129,7 @@ export default function TechStack() {
             </Marquee>
 
             {/* Row 2: Moving Right (Reverse) */}
-            <Marquee direction="right" speed={35} pauseOnHover={true} gap="gap-3.5">
+            <Marquee direction="right" speed={60} pauseOnHover={true} gap="gap-3.5">
               {row2Tech.map((item) => (
                 <div
                   key={`r2-${item.name}`}

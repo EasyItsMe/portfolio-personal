@@ -149,7 +149,7 @@ export default function Hero() {
               </span>
             </div>
             
-            <Marquee speed={40} pauseOnHover={true} gap="gap-2.5" className="py-1">
+            <Marquee speed={60} pauseOnHover={true} gap="gap-2.5" className="py-1">
               {toolkit.map((item) => (
                 <div
                   key={item.name}
