@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Award } from "lucide-react";
 import { useToast } from "./Toast";
 import { useLanguage } from "@/context/LanguageContext";
 import { TechLogo } from "./TechLogos";
@@ -247,34 +247,46 @@ export default function Hero() {
               />
             </div>
 
-            {/* Floating Card 1: 10+ Projects Built (Top Right) */}
-            <div className="absolute -top-4 -right-2 sm:-right-4 md:-right-2 lg:-right-6 bg-white/85 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-3.5 sm:p-4 z-30 min-w-[145px] sm:min-w-[170px] transition-transform hover:-translate-y-1">
-              <span className="font-heading font-black text-2xl sm:text-3xl text-[#101221] block leading-none tracking-tight">
-                {t.hero.card1Number}
-              </span>
+            {/* Floating Card 1: 21+ Certified Credentials (Top Right) */}
+            <Link
+              href="#certifications"
+              className="absolute -top-4 -right-2 sm:-right-4 md:-right-2 lg:-right-6 bg-white/90 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-3.5 sm:p-4 z-30 min-w-[150px] sm:min-w-[180px] transition-all hover:-translate-y-1 hover:shadow-2xl group/card1 cursor-pointer block"
+            >
+              <div className="flex items-center justify-between gap-1">
+                <span className="font-heading font-black text-2xl sm:text-3xl text-[#101221] block leading-none tracking-tight group-hover/card1:text-[#6366f1] transition-colors">
+                  {t.hero.card1Number}
+                </span>
+                <Award className="w-4 h-4 text-[#6366f1] opacity-80 group-hover/card1:scale-110 transition-transform" />
+              </div>
               <span className="block text-xs font-bold text-[#3e445b] mt-1">
                 {t.hero.card1Title}
               </span>
-              <span className="block text-[11px] font-medium text-[#737992]">
+              <span className="block text-[10.5px] font-medium text-[#737992]">
                 {t.hero.card1Sub}
               </span>
-            </div>
+            </Link>
 
-            {/* Floating Card 2: Core Specialization (Bottom Right) */}
-            <div className="absolute -bottom-4 -right-2 sm:-right-4 md:-right-2 lg:-right-4 bg-white/85 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-3.5 sm:p-4 z-30 min-w-[160px] sm:min-w-[195px] transition-transform hover:-translate-y-1">
-              <span className="block text-[10.5px] font-bold text-[#71768e] uppercase tracking-wider">
-                {t.hero.card2Badge}
-              </span>
+            {/* Floating Card 2: Ready for Work & Projects (Bottom Right) */}
+            <Link
+              href="#contact"
+              className="absolute -bottom-4 -right-2 sm:-right-4 md:-right-2 lg:-right-4 bg-white/90 backdrop-blur-xl border border-white/95 shadow-xl rounded-2xl p-3.5 sm:p-4 z-30 min-w-[165px] sm:min-w-[200px] transition-all hover:-translate-y-1 hover:shadow-2xl group/card2 cursor-pointer block"
+            >
+              <div className="flex items-center gap-1.5 mb-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="block text-[10px] font-bold text-emerald-600 uppercase tracking-wider">
+                  {t.hero.card2Badge}
+                </span>
+              </div>
               <div className="flex items-center gap-1.5 mt-0.5 mb-0.5">
-                <span className="font-heading font-black text-sm sm:text-base lg:text-lg text-[#101221] leading-none">
+                <span className="font-heading font-black text-sm sm:text-base lg:text-lg text-[#101221] leading-none group-hover/card2:text-[#6366f1] transition-colors">
                   {t.hero.card2Title}
                 </span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#6366f1]" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#6366f1] transition-transform group-hover/card2:translate-x-0.5 group-hover/card2:-translate-y-0.5" />
               </div>
               <span className="block text-[11px] font-medium text-[#6366f1] mb-1">
                 {t.hero.card2Sub}
               </span>
-              <svg className="w-full h-4 text-[#6366f1]" viewBox="0 0 120 16" fill="none">
+              <svg className="w-full h-3.5 text-[#6366f1]" viewBox="0 0 120 16" fill="none">
                 <path
                   d="M 2 12 Q 25 2, 50 9 T 90 6 T 118 3"
                   stroke="currentColor"
@@ -282,7 +294,7 @@ export default function Hero() {
                   strokeLinecap="round"
                 />
               </svg>
-            </div>
+            </Link>
           </div>
         </Reveal>
       </div>
