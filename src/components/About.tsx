@@ -56,7 +56,7 @@ export default function About() {
 
               <div className="relative rounded-3xl overflow-hidden glass-card border border-white/95 shadow-xl transition-all duration-500 group-hover:shadow-2xl">
                 <Image
-                  src="/profil.png"
+                  src="/assets/profilaz1.jpeg"
                   alt="Ahmad Zaki — Full-Stack Developer"
                   width={600}
                   height={600}

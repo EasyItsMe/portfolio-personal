@@ -226,7 +226,7 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/profil.png"
+                src="/assets/profilaz1.jpeg"
                 alt="Ahmad Zaki — Full-Stack Developer"
                 width={800}
                 height={800}

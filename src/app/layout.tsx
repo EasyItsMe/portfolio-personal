@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/profil.png",
+        url: "/assets/profilaz1.jpeg",
         width: 800,
         height: 800,
         alt: "Ahmad Zaki — Full-Stack Developer",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     title: "Ahmad Zaki — Full-Stack Developer",
     description:
       "Full-Stack Web Developer specialized in Laravel, Next.js, and modern web architectures.",
-    images: ["/profil.png"],
+    images: ["/assets/profilaz1.jpeg"],
     creator: "@EasyItsMe",
   },
   robots: {
@@ -103,8 +103,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/profil.png",
-    apple: "/profil.png",
+    icon: "/assets/profilaz1.jpeg",
+    apple: "/assets/profilaz1.jpeg",
   },
   category: "technology",
 };
@@ -122,7 +122,7 @@ export default function RootLayout({
         "@id": `${siteUrl}/#person`,
         name: "Ahmad Zaki",
         url: siteUrl,
-        image: `${siteUrl}/profil.png`,
+        image: `${siteUrl}/assets/profilaz1.jpeg`,
         jobTitle: "Full-Stack Web Developer",
         worksFor: {
           "@type": "Organization",
