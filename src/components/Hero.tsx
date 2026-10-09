@@ -13,7 +13,7 @@ import Reveal from "./Reveal";
 export default function Hero() {
   const visualRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   // Typewriter Animation
   const roles = t.hero.roles;
@@ -68,7 +68,11 @@ export default function Hero() {
   };
 
   const handleOpenCv = () => {
-    window.open("/assets/CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf", "_blank", "noopener,noreferrer");
+    const cvFile =
+      language === "id"
+        ? "/assets/CV_Ahmad_Zaki_Full_Stack_ATS.pdf"
+        : "/assets/CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf";
+    window.open(cvFile, "_blank", "noopener,noreferrer");
     showToast(t.hero.cvToast, "success");
   };
 

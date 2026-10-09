@@ -8,7 +8,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "./Reveal";
 
 export default function About() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const highlights = [
     {
@@ -143,7 +143,11 @@ export default function About() {
 
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="/assets/CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf"
+                href={
+                  language === "id"
+                    ? "/assets/CV_Ahmad_Zaki_Full_Stack_ATS.pdf"
+                    : "/assets/CV_Ahmad_Zaki_Full_Stack_ATS_English.pdf"
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-[#0f1221] hover:bg-[#1e2338] text-white px-5 py-2.5 rounded-full shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
