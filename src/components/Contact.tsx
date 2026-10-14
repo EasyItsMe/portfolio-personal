@@ -101,12 +101,14 @@ export default function Contact() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
+                  <label htmlFor="contact-name" className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
                     {t.contact.formName}
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
+                    aria-label={t.contact.formName}
                     value={formData.name}
                     onChange={handleChange}
                     placeholder={t.contact.formNamePlaceholder}
@@ -115,12 +117,14 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
+                  <label htmlFor="contact-email" className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
                     {t.contact.formEmail}
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
+                    aria-label={t.contact.formEmail}
                     value={formData.email}
                     onChange={handleChange}
                     placeholder={t.contact.formEmailPlaceholder}
@@ -131,11 +135,13 @@ export default function Contact() {
               </div>
 
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
+                <label htmlFor="contact-project" className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
                   {t.contact.formTopic}
                 </label>
                 <select
+                  id="contact-project"
                   name="project"
+                  aria-label={t.contact.formTopic}
                   value={formData.project}
                   onChange={handleChange}
                   className="w-full bg-white/80 border border-slate-200 focus:border-[#6366f1] focus:bg-white focus:ring-2 focus:ring-[#6366f1]/20 rounded-xl px-3.5 py-2.5 text-sm text-[#111425] outline-none transition-all duration-200 cursor-pointer"
@@ -149,11 +155,13 @@ export default function Contact() {
               </div>
 
               <div className="mb-5">
-                <label className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
+                <label htmlFor="contact-message" className="block text-xs font-semibold text-[#4a4f66] mb-1.5">
                   {t.contact.formMessage}
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
+                  aria-label={t.contact.formMessage}
                   value={formData.message}
                   onChange={handleChange}
                   placeholder={t.contact.formMessagePlaceholder}

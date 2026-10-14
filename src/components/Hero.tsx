@@ -184,6 +184,7 @@ export default function Hero() {
           >
             {/* SVG Glowing Specular Arc Lines */}
             <svg
+              aria-hidden="true"
               className="absolute -inset-8 w-[calc(100%+64px)] h-[calc(100%+64px)] pointer-events-none z-10 opacity-70"
               viewBox="0 0 500 500"
               fill="none"
@@ -215,7 +216,7 @@ export default function Hero() {
             <div className="absolute -left-4 sm:-left-6 top-[55%] -translate-y-1/2 z-30 flex items-center justify-center group cursor-default">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/40 border border-white/80 backdrop-blur-md shadow-lg flex items-center justify-center p-1 transition-transform group-hover:scale-110">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-white/90 via-indigo-50/70 to-purple-100/80 border border-white flex items-center justify-center shadow-inner">
-                  <svg className="w-6 h-6 text-[#6366f1] fill-current drop-shadow-[0_0_6px_rgba(99,102,241,0.6)]" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" className="w-6 h-6 text-[#6366f1] fill-current drop-shadow-[0_0_6px_rgba(99,102,241,0.6)]" viewBox="0 0 24 24">
                     <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" />
                   </svg>
                 </div>
@@ -286,7 +287,7 @@ export default function Hero() {
               <span className="block text-[11px] font-medium text-[#6366f1] mb-1">
                 {t.hero.card2Sub}
               </span>
-              <svg className="w-full h-3.5 text-[#6366f1]" viewBox="0 0 120 16" fill="none">
+              <svg aria-hidden="true" className="w-full h-3.5 text-[#6366f1]" viewBox="0 0 120 16" fill="none">
                 <path
                   d="M 2 12 Q 25 2, 50 9 T 90 6 T 118 3"
                   stroke="currentColor"
